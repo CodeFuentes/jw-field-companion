@@ -1,0 +1,48 @@
+{
+  "app": {
+    "name": "Field Companion",
+    "tagline": "A calm, local-first workspace for ministry records."
+  },
+  "navigation": {
+    "home": "Home",
+    "persons": "Persons",
+    "ministry": "Ministry",
+    "studies": "Studies",
+    "settings": "Settings"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Phase 1 foundation",
+      "title": "Desktop shell ready for multi-profile, offline-first ministry workflows.",
+      "description": "This starter replaces the generic Vite page with a product-specific application shell, local design tokens, bundled typography, and the initial localization setup required by the specification."
+    },
+    "checklist": {
+      "eyebrow": "Included now",
+      "title": "Setup progress",
+      "items": {
+        "scaffold": "React + TypeScript scaffold integrated into the repository root.",
+        "structure": "Folder structure prepared for components, pages, hooks, store, lib, types, and i18n.",
+        "i18n": "English and neutral Spanish translation files added from day one.",
+        "tauri": "Tauri desktop shell initialized with local build commands and SQLite plugin wiring."
+      }
+    },
+    "cards": {
+      "sqlite": {
+        "title": "SQLite-ready desktop shell",
+        "description": "Tauri is configured and prepared to host local SQLite-backed flows for Phase 1."
+      },
+      "i18n": {
+        "title": "Localization foundation",
+        "description": "The app now boots with i18next and ships with English and neutral Spanish resources."
+      },
+      "flows": {
+        "title": "Flow-oriented structure",
+        "description": "The repository is organized to grow around the issue sequence you defined for onboarding, persons, visits, studies, and sessions."
+      },
+      "backup": {
+        "title": "Commercial-grade groundwork",
+        "description": "The initial shell already reflects the product’s emphasis on clarity, safety, backups, and calm visual hierarchy."
+      }
+    }
+  }
+}

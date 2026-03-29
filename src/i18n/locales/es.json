@@ -1,0 +1,48 @@
+{
+  "app": {
+    "name": "Field Companion",
+    "tagline": "Un espacio local y claro para tus registros del ministerio."
+  },
+  "navigation": {
+    "home": "Inicio",
+    "persons": "Personas",
+    "ministry": "Ministerio",
+    "studies": "Estudios",
+    "settings": "Ajustes"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Base de la fase 1",
+      "title": "Contenedor desktop listo para flujos offline-first y soporte multi-perfil.",
+      "description": "Este punto de partida reemplaza la pantalla genérica de Vite por una base propia del producto, con tokens visuales locales, tipografía bundleada e inicialización de localización según el spec."
+    },
+    "checklist": {
+      "eyebrow": "Incluido ahora",
+      "title": "Progreso del setup",
+      "items": {
+        "scaffold": "Scaffold React + TypeScript integrado en la raíz del repositorio.",
+        "structure": "Estructura preparada para components, pages, hooks, store, lib, types e i18n.",
+        "i18n": "Archivos de traducción en inglés y español neutral disponibles desde el primer día.",
+        "tauri": "Contenedor desktop con Tauri inicializado y plugin de SQLite conectado."
+      }
+    },
+    "cards": {
+      "sqlite": {
+        "title": "Base desktop lista para SQLite",
+        "description": "Tauri ya está configurado para alojar flujos locales respaldados por SQLite durante la fase 1."
+      },
+      "i18n": {
+        "title": "Fundación de localización",
+        "description": "La app arranca con i18next y recursos en inglés y español neutral."
+      },
+      "flows": {
+        "title": "Estructura orientada a flujos",
+        "description": "El repositorio ya está organizado para crecer siguiendo el orden de issues que definiste."
+      },
+      "backup": {
+        "title": "Base con criterio de producto",
+        "description": "El shell inicial ya refleja el foco del producto en claridad, seguridad, backups y jerarquía visual serena."
+      }
+    }
+  }
+}
