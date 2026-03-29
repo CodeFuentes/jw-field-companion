@@ -14,35 +14,46 @@
     "hero": {
       "eyebrow": "Base de la fase 1",
       "title": "Contenedor desktop listo para flujos offline-first y soporte multi-perfil.",
-      "description": "Este punto de partida reemplaza la pantalla genérica de Vite por una base propia del producto, con tokens visuales locales, tipografía bundleada e inicialización de localización según el spec."
+      "description": "Este punto de partida reemplaza la pantalla generica de Vite por una base propia del producto, con tokens visuales locales, tipografia bundleada e inicializacion de localizacion segun el spec."
     },
     "checklist": {
       "eyebrow": "Incluido ahora",
       "title": "Progreso del setup",
       "items": {
-        "scaffold": "Scaffold React + TypeScript integrado en la raíz del repositorio.",
+        "scaffold": "Scaffold React + TypeScript integrado en la raiz del repositorio.",
         "structure": "Estructura preparada para components, pages, hooks, store, lib, types e i18n.",
-        "i18n": "Archivos de traducción en inglés y español neutral disponibles desde el primer día.",
+        "i18n": "Archivos de traduccion en ingles y espanol neutral disponibles desde el primer dia.",
         "tauri": "Contenedor desktop con Tauri inicializado y plugin de SQLite conectado."
       }
     },
     "cards": {
       "sqlite": {
         "title": "Base desktop lista para SQLite",
-        "description": "Tauri ya está configurado para alojar flujos locales respaldados por SQLite durante la fase 1."
+        "description": "Tauri ya esta configurado para alojar flujos locales respaldados por SQLite durante la fase 1."
       },
       "i18n": {
-        "title": "Fundación de localización",
-        "description": "La app arranca con i18next y recursos en inglés y español neutral."
+        "title": "Fundacion de localizacion",
+        "description": "La app arranca con i18next y recursos en ingles y espanol neutral."
       },
       "flows": {
         "title": "Estructura orientada a flujos",
-        "description": "El repositorio ya está organizado para crecer siguiendo el orden de issues que definiste."
+        "description": "El repositorio ya esta organizado para crecer siguiendo el orden de issues que definiste."
       },
       "backup": {
         "title": "Base con criterio de producto",
-        "description": "El shell inicial ya refleja el foco del producto en claridad, seguridad, backups y jerarquía visual serena."
+        "description": "El shell inicial ya refleja el foco del producto en claridad, seguridad, backups y jerarquia visual serena."
       }
+    },
+    "database": {
+      "eyebrow": "Verificacion live del issue #8",
+      "title": "Estado del arranque de base de datos",
+      "description": "Este panel muestra si la app pudo crear e inicializar el schema local de SQLite para el perfil bootstrap actual.",
+      "profileId": "ID del perfil bootstrap",
+      "path": "Ruta de la base",
+      "tableCount": "Tablas detectadas",
+      "runtime": "Runtime",
+      "tables": "Tablas del schema",
+      "tablesEmpty": "Todavia no se detectaron tablas de la aplicacion."
     }
   }
 }

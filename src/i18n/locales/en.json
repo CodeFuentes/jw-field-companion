@@ -41,8 +41,19 @@
       },
       "backup": {
         "title": "Commercial-grade groundwork",
-        "description": "The initial shell already reflects the product’s emphasis on clarity, safety, backups, and calm visual hierarchy."
+        "description": "The initial shell already reflects the product's emphasis on clarity, safety, backups, and calm visual hierarchy."
       }
+    },
+    "database": {
+      "eyebrow": "Issue #8 live verification",
+      "title": "Database bootstrap status",
+      "description": "This panel shows whether the app could create and initialize the local SQLite schema for the current bootstrap profile.",
+      "profileId": "Bootstrap profile ID",
+      "path": "Database path",
+      "tableCount": "Detected tables",
+      "runtime": "Runtime",
+      "tables": "Schema tables",
+      "tablesEmpty": "No application tables were detected yet."
     }
   }
 }
