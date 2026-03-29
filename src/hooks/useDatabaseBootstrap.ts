@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import {
   canUseNativeDatabase,
-  getOrCreateBootstrapProfileId,
   initializeProfileDatabase,
 } from '../lib/database'
 import type { DatabaseBootstrapState } from '../types/database'
@@ -35,13 +34,25 @@ function getErrorMessage(error: unknown) {
   return 'Database initialization failed with an unknown error payload.'
 }
 
-export function useDatabaseBootstrap() {
+export function useDatabaseBootstrap(profileId: string | null) {
   const [state, setState] = useState<DatabaseBootstrapState>(initialState)
 
   useEffect(() => {
     let cancelled = false
 
     async function bootstrap() {
+      if (!profileId) {
+        setState({
+          status: 'idle',
+          profileId: null,
+          databasePath: null,
+          tableCount: 0,
+          tables: [],
+          message: 'Select a profile to initialize its local SQLite database.',
+        })
+        return
+      }
+
       if (!canUseNativeDatabase()) {
         setState({
           status: 'unsupported',
@@ -53,8 +64,6 @@ export function useDatabaseBootstrap() {
         })
         return
       }
-
-      const profileId = getOrCreateBootstrapProfileId()
 
       setState({
         status: 'loading',
@@ -101,7 +110,7 @@ export function useDatabaseBootstrap() {
     return () => {
       cancelled = true
     }
-  }, [])
+  }, [profileId])
 
   return state
 }

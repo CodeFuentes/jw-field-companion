@@ -1,7 +1,5 @@
 import Database from '@tauri-apps/plugin-sql'
 
-const DEV_PROFILE_STORAGE_KEY = 'jwfc.devProfileId'
-
 const schemaStatements = [
   `PRAGMA foreign_keys = ON;`,
   `CREATE TABLE IF NOT EXISTS user_settings (
@@ -96,19 +94,6 @@ interface TableRow {
 
 function isTauriRuntime() {
   return typeof window !== 'undefined' && '__TAURI_INTERNALS__' in window
-}
-
-export function getOrCreateBootstrapProfileId() {
-  const existingId = window.localStorage.getItem(DEV_PROFILE_STORAGE_KEY)
-
-  if (existingId) {
-    return existingId
-  }
-
-  const profileId = crypto.randomUUID()
-  window.localStorage.setItem(DEV_PROFILE_STORAGE_KEY, profileId)
-
-  return profileId
 }
 
 export function createProfileDatabasePath(profileId: string) {

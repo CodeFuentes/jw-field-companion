@@ -1,6 +1,6 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
-  "productName": "jw-field-companion",
+  "productName": "JW Field Companion",
   "version": "0.1.0",
   "identifier": "com.codefuentes.jw-field-companion",
   "build": {
@@ -12,7 +12,7 @@
   "app": {
     "windows": [
       {
-        "title": "jw-field-companion",
+        "title": "JW Field Companion",
         "width": 1280,
         "height": 840,
         "minWidth": 960,

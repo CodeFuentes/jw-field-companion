@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "Field Companion",
+    "name": "JW Field Companion",
     "tagline": "Un espacio local y claro para tus registros del ministerio."
   },
   "navigation": {
@@ -9,6 +9,50 @@
     "ministry": "Ministerio",
     "studies": "Estudios",
     "settings": "Ajustes"
+  },
+  "profiles": {
+    "eyebrow": "Antes de entrar a la app",
+    "title": "Selecciona un perfil",
+    "subtitle": "Selecciona un perfil para continuar",
+    "switch": "Cambiar perfil",
+    "create": {
+      "eyebrow": "Agregar perfil",
+      "title": "Crear perfil",
+      "description": "",
+      "nameLabel": "Nombre del perfil",
+      "namePlaceholder": "Maria Gonzalez",
+      "action": "Crear perfil",
+      "creating": "Creando...",
+      "cancel": "Cancelar"
+    },
+    "delete": {
+      "openLabel": "Eliminar perfil {{name}}",
+      "title": "Eliminar perfil",
+      "description": "Se eliminaran los datos locales de este perfil de forma permanente.",
+      "cancel": "Cancelar",
+      "confirm": "Eliminar",
+      "deleting": "Eliminando..."
+    },
+    "list": {
+      "eyebrow": "Perfiles",
+      "title": "Perfiles disponibles en esta maquina",
+      "selected": "Ultimo perfil activo",
+      "available": "Perfil disponible",
+      "open": "Abrir perfil",
+      "opening": "Abriendo...",
+      "preselected": "Preseleccionado",
+      "empty": "Todavia no existen perfiles. Crea el primero para continuar."
+    }
+  },
+  "onboardingPlaceholder": {
+    "eyebrow": "Configuracion inicial",
+    "title": "Bienvenido, {{name}}",
+    "description": "Elige el idioma en que quieres usar la aplicacion.",
+    "continue": "Continuar",
+    "languages": {
+      "es": "Español",
+      "en": "English"
+    }
   },
   "home": {
     "hero": {
@@ -48,7 +92,7 @@
       "eyebrow": "Verificacion live del issue #8",
       "title": "Estado del arranque de base de datos",
       "description": "Este panel muestra si la app pudo crear e inicializar el schema local de SQLite para el perfil bootstrap actual.",
-      "profileId": "ID del perfil bootstrap",
+      "profileId": "ID del perfil activo",
       "path": "Ruta de la base",
       "tableCount": "Tablas detectadas",
       "runtime": "Runtime",

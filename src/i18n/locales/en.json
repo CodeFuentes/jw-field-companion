@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "Field Companion",
+    "name": "JW Field Companion",
     "tagline": "A calm, local-first workspace for ministry records."
   },
   "navigation": {
@@ -9,6 +9,50 @@
     "ministry": "Ministry",
     "studies": "Studies",
     "settings": "Settings"
+  },
+  "profiles": {
+    "eyebrow": "Before entering the app",
+    "title": "Choose a profile",
+    "subtitle": "Select a profile to continue",
+    "switch": "Switch profile",
+    "create": {
+      "eyebrow": "Add profile",
+      "title": "Create profile",
+      "description": "",
+      "nameLabel": "Profile name",
+      "namePlaceholder": "Maria Gonzalez",
+      "action": "Create profile",
+      "creating": "Creating...",
+      "cancel": "Cancel"
+    },
+    "delete": {
+      "openLabel": "Delete profile {{name}}",
+      "title": "Delete profile",
+      "description": "This will permanently remove this profile's local data.",
+      "cancel": "Cancel",
+      "confirm": "Delete",
+      "deleting": "Deleting..."
+    },
+    "list": {
+      "eyebrow": "Profiles",
+      "title": "Available profiles on this machine",
+      "selected": "Last active profile",
+      "available": "Available profile",
+      "open": "Open profile",
+      "opening": "Opening...",
+      "preselected": "Preselected",
+      "empty": "No profiles exist yet. Create the first profile to continue."
+    }
+  },
+  "onboardingPlaceholder": {
+    "eyebrow": "Initial setup",
+    "title": "Welcome, {{name}}",
+    "description": "Choose the language you want to use in the app.",
+    "continue": "Continue",
+    "languages": {
+      "es": "Spanish",
+      "en": "English"
+    }
   },
   "home": {
     "hero": {
@@ -48,7 +92,7 @@
       "eyebrow": "Issue #8 live verification",
       "title": "Database bootstrap status",
       "description": "This panel shows whether the app could create and initialize the local SQLite schema for the current bootstrap profile.",
-      "profileId": "Bootstrap profile ID",
+      "profileId": "Active profile ID",
       "path": "Database path",
       "tableCount": "Detected tables",
       "runtime": "Runtime",

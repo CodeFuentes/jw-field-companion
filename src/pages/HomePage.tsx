@@ -25,9 +25,13 @@ const setupItems = [
   },
 ] as const
 
-export function HomePage() {
+interface HomePageProps {
+  activeProfileId: string | null
+}
+
+export function HomePage({ activeProfileId }: HomePageProps) {
   const { t } = useTranslation()
-  const databaseState = useDatabaseBootstrap()
+  const databaseState = useDatabaseBootstrap(activeProfileId)
 
   const statusTone =
     databaseState.status === 'ready'
@@ -109,7 +113,7 @@ export function HomePage() {
                   {t('home.database.profileId')}
                 </dt>
                 <dd className="mt-2 break-all text-sm text-[var(--text-secondary)]">
-                  {databaseState.profileId ?? '—'}
+                  {databaseState.profileId ?? '-'}
                 </dd>
               </div>
 
@@ -118,7 +122,7 @@ export function HomePage() {
                   {t('home.database.path')}
                 </dt>
                 <dd className="mt-2 break-all text-sm text-[var(--text-secondary)]">
-                  {databaseState.databasePath ?? '—'}
+                  {databaseState.databasePath ?? '-'}
                 </dd>
               </div>
 
