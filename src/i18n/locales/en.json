@@ -44,14 +44,57 @@
       "empty": "No profiles exist yet. Create the first profile to continue."
     }
   },
-  "onboardingPlaceholder": {
+  "onboarding": {
     "eyebrow": "Initial setup",
-    "title": "Welcome, {{name}}",
-    "description": "Choose the language you want to use in the app.",
-    "continue": "Continue",
-    "languages": {
-      "es": "Spanish",
-      "en": "English"
+    "actions": {
+      "back": "Back",
+      "continue": "Continue"
+    },
+    "language": {
+      "title": "Welcome, {{name}}",
+      "description": "Choose the language you want to use in the app.",
+      "languages": {
+        "es": "Spanish",
+        "en": "English"
+      }
+    },
+    "terms": {
+      "title": "Terms of use",
+      "description": "Read and accept the terms before continuing.",
+      "disclaimerTitle": "Independence notice",
+      "disclaimerBody": "This application is independent and is not affiliated with, sponsored by, or approved by Jehovah's Witnesses or the Watch Tower Bible and Tract Society.",
+      "scrollHint": "Scroll to the end to enable the button.",
+      "accept": "Accept and continue"
+    },
+    "theme": {
+      "title": "Appearance",
+      "description": "Choose how you want the app to look.",
+      "options": {
+        "light": "Light",
+        "dark": "Dark",
+        "system": "System"
+      }
+    },
+    "backup": {
+      "title": "Personal backup",
+      "description": "You can save your data to a folder of your choice in addition to the automatic system backup.",
+      "note": "System backup is always active. Configuring a personal folder gives you an additional backup you can access whenever you need it.",
+      "notConfigured": "Not configured",
+      "choose": "Choose folder",
+      "skip": "Skip for now",
+      "confirmation": "First backup created at {{path}}"
+    },
+    "ready": {
+      "title": "All set",
+      "description": "This is the initial summary of your setup.",
+      "action": "Start using the app",
+      "summary": {
+        "language": "Language",
+        "theme": "Theme",
+        "backup": "Backup",
+        "personal": "Personal + system",
+        "system": "System only"
+      }
     }
   },
   "home": {

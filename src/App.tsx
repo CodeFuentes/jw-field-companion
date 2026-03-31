@@ -49,7 +49,7 @@ function App() {
     )
   }
 
-  if (mode === 'onboarding-placeholder' && activeProfile) {
+  if (mode === 'onboarding' && activeProfile) {
     return (
       <OnboardingPlaceholderPage
         onContinue={handleContinueFromOnboardingPlaceholder}

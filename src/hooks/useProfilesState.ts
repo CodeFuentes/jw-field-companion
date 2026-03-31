@@ -1,8 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
 import { createProfile, deleteProfile, loadProfilesState, selectProfile } from '../lib/profiles'
+import { getUserSettings } from '../lib/onboarding'
+import { applyTheme } from '../lib/theme'
 import type { ProfileRecord, ProfilesStore } from '../types/profile'
+import i18n from '../i18n'
 
-type ViewMode = 'loading' | 'selection' | 'onboarding-placeholder' | 'app'
+type ViewMode = 'loading' | 'selection' | 'onboarding' | 'app'
 
 interface ProfilesViewState {
   mode: ViewMode
@@ -21,6 +24,21 @@ function findActiveProfile(store: ProfilesStore) {
   return (
     store.profiles.find((profile) => profile.id === store.last_active_profile_id) ?? null
   )
+}
+
+async function resolveProfileMode(profile: ProfileRecord | null) {
+  if (!profile) {
+    return 'selection' as const
+  }
+
+  const settings = await getUserSettings(profile.id)
+
+  if (settings) {
+    void i18n.changeLanguage(settings.language)
+    applyTheme(settings.theme)
+  }
+
+  return settings?.onboarding_completed ? ('app' as const) : ('onboarding' as const)
 }
 
 export function useProfilesState() {
@@ -53,10 +71,13 @@ export function useProfilesState() {
             return
           }
 
+          const activeProfile = findActiveProfile(selectedStore)
+          const mode = await resolveProfileMode(activeProfile)
+
           setState({
-            mode: 'app',
+            mode,
             store: selectedStore,
-            activeProfile: findActiveProfile(selectedStore),
+            activeProfile,
             pendingProfile: null,
             error: null,
           })
@@ -102,7 +123,7 @@ export function useProfilesState() {
     const profile = findActiveProfile(store)
 
     setState({
-      mode: 'onboarding-placeholder',
+      mode: 'onboarding',
       store,
       activeProfile: profile,
       pendingProfile: profile,
@@ -112,11 +133,13 @@ export function useProfilesState() {
 
   async function handleSelectProfile(profileId: string) {
     const store = await selectProfile(profileId)
+    const activeProfile = findActiveProfile(store)
+    const mode = await resolveProfileMode(activeProfile)
 
     setState({
-      mode: 'app',
+      mode,
       store,
-      activeProfile: findActiveProfile(store),
+      activeProfile,
       pendingProfile: null,
       error: null,
     })

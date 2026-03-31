@@ -1,4 +1,5 @@
 use chrono::Utc;
+use rfd::FileDialog;
 use serde::{Deserialize, Serialize};
 use std::{
   fs,
@@ -23,6 +24,13 @@ struct ProfilesStore {
   last_active_profile_id: Option<String>,
 }
 
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+struct BackupSetupResult {
+  selected_path: Option<String>,
+  snapshot_path: Option<String>,
+}
+
 fn now_utc_iso() -> String {
   Utc::now().to_rfc3339()
 }
@@ -45,6 +53,10 @@ fn profiles_json_path(app: &AppHandle) -> Result<PathBuf, String> {
 
 fn profile_db_path(app: &AppHandle, profile_id: &str) -> Result<PathBuf, String> {
   Ok(app_data_dir(app)?.join(format!("{profile_id}.db")))
+}
+
+fn timestamp_compact() -> String {
+  Utc::now().format("%Y%m%d-%H%M%S").to_string()
 }
 
 fn write_profiles_store(app: &AppHandle, store: &ProfilesStore) -> Result<(), String> {
@@ -205,6 +217,59 @@ fn delete_profile(app: AppHandle, profile_id: String) -> Result<ProfilesStore, S
   Ok(store)
 }
 
+#[tauri::command]
+fn choose_backup_directory(app: AppHandle, profile_id: String) -> Result<BackupSetupResult, String> {
+  let selected_path = FileDialog::new().pick_folder();
+
+  let Some(directory) = selected_path else {
+    return Ok(BackupSetupResult {
+      selected_path: None,
+      snapshot_path: None,
+    });
+  };
+
+  let directory_string = directory.to_string_lossy().to_string();
+  let snapshot_directory = directory.join(format!("jwfc-backup-{profile_id}-{}", timestamp_compact()));
+
+  fs::create_dir_all(&snapshot_directory).map_err(|error| {
+    format!(
+      "Failed to create backup snapshot directory {}: {error}",
+      snapshot_directory.display()
+    )
+  })?;
+
+  let db_path = profile_db_path(&app, &profile_id)?;
+
+  if db_path.exists() {
+    let snapshot_db_path = snapshot_directory.join(format!("{profile_id}.db"));
+    fs::copy(&db_path, &snapshot_db_path).map_err(|error| {
+      format!(
+        "Failed to copy database file from {} to {}: {error}",
+        db_path.display(),
+        snapshot_db_path.display()
+      )
+    })?;
+  }
+
+  let profiles_path = profiles_json_path(&app)?;
+
+  if profiles_path.exists() {
+    let snapshot_profiles_path = snapshot_directory.join("profiles.json");
+    fs::copy(&profiles_path, &snapshot_profiles_path).map_err(|error| {
+      format!(
+        "Failed to copy profiles.json from {} to {}: {error}",
+        profiles_path.display(),
+        snapshot_profiles_path.display()
+      )
+    })?;
+  }
+
+  Ok(BackupSetupResult {
+    selected_path: Some(directory_string),
+    snapshot_path: Some(snapshot_directory.to_string_lossy().to_string()),
+  })
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
   tauri::Builder::default()
@@ -223,7 +288,8 @@ pub fn run() {
       load_profiles_state,
       create_profile,
       select_profile,
-      delete_profile
+      delete_profile,
+      choose_backup_directory
     ])
     .run(tauri::generate_context!())
     .expect("error while running tauri application");

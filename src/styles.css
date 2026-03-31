@@ -32,6 +32,20 @@
   --shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 
+:root[data-theme='dark'] {
+  color: #f0ede8;
+  background-color: #1a1917;
+  --background-primary: #1a1917;
+  --background-secondary: #232220;
+  --background-tertiary: #2a2927;
+  --background-elevated: #2f2e2b;
+  --text-primary: #f0ede8;
+  --text-secondary: #a8a49c;
+  --text-tertiary: #6b6a64;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.13);
+}
+
 * {
   box-sizing: border-box;
 }

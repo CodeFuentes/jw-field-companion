@@ -44,14 +44,57 @@
       "empty": "Todavia no existen perfiles. Crea el primero para continuar."
     }
   },
-  "onboardingPlaceholder": {
+  "onboarding": {
     "eyebrow": "Configuracion inicial",
-    "title": "Bienvenido, {{name}}",
-    "description": "Elige el idioma en que quieres usar la aplicacion.",
-    "continue": "Continuar",
-    "languages": {
-      "es": "Español",
-      "en": "English"
+    "actions": {
+      "back": "Atras",
+      "continue": "Continuar"
+    },
+    "language": {
+      "title": "Bienvenido, {{name}}",
+      "description": "Elige el idioma en que quieres usar la aplicacion.",
+      "languages": {
+        "es": "Espanol",
+        "en": "English"
+      }
+    },
+    "terms": {
+      "title": "Terminos de uso",
+      "description": "Lee y acepta los terminos antes de continuar.",
+      "disclaimerTitle": "Aviso de independencia",
+      "disclaimerBody": "This application is independent and is not affiliated with, sponsored by, or approved by Jehovah's Witnesses or the Watch Tower Bible and Tract Society.",
+      "scrollHint": "Desplazate hasta el final para habilitar el boton.",
+      "accept": "Acepto y continuo"
+    },
+    "theme": {
+      "title": "Apariencia",
+      "description": "Elige como quieres que se vea la aplicacion.",
+      "options": {
+        "light": "Claro",
+        "dark": "Oscuro",
+        "system": "Sistema"
+      }
+    },
+    "backup": {
+      "title": "Copia de seguridad personal",
+      "description": "Puedes guardar tus datos en una carpeta de tu eleccion, ademas de la copia automatica del sistema.",
+      "note": "La copia de seguridad del sistema esta siempre activa. Configurar una carpeta personal te permite acceder a un respaldo adicional cuando lo necesites.",
+      "notConfigured": "No configurada",
+      "choose": "Elegir carpeta",
+      "skip": "Omitir por ahora",
+      "confirmation": "Primer respaldo creado en {{path}}"
+    },
+    "ready": {
+      "title": "Todo listo",
+      "description": "Este es el resumen inicial de tu configuracion.",
+      "action": "Empezar a usar la app",
+      "summary": {
+        "language": "Idioma",
+        "theme": "Tema",
+        "backup": "Copia de seguridad",
+        "personal": "Personal + sistema",
+        "system": "Solo sistema"
+      }
     }
   },
   "home": {
