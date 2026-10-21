@@ -1,0 +1,79 @@
+@import 'tailwindcss';
+
+:root {
+  font-family: 'Inter', sans-serif;
+  color: #1a1a1a;
+  background-color: #f5f4ef;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --background-primary: #f5f4ef;
+  --background-secondary: #eceae3;
+  --background-tertiary: #e2e0d8;
+  --background-elevated: #ffffff;
+  --background-dark: #1a1917;
+  --purple-50: #f0effe;
+  --purple-200: #c9c4f8;
+  --purple-400: #7c6fe0;
+  --purple-500: #5b4fcf;
+  --purple-700: #4338a8;
+  --purple-900: #2d2472;
+  --success: #1d9e75;
+  --warning: #ba7517;
+  --danger: #e24b4a;
+  --info: #378add;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b6a64;
+  --text-tertiary: #9c9a92;
+  --border-subtle: rgba(26, 26, 26, 0.08);
+  --border-strong: rgba(26, 26, 26, 0.15);
+  --shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+:root[data-theme='dark'] {
+  color: #f0ede8;
+  background-color: #1a1917;
+  --background-primary: #1a1917;
+  --background-secondary: #232220;
+  --background-tertiary: #2a2927;
+  --background-elevated: #2f2e2b;
+  --text-primary: #f0ede8;
+  --text-secondary: #a8a49c;
+  --text-tertiary: #6b6a64;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.13);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--background-primary);
+  color: var(--text-primary);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
